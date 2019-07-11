@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="21sp"
+                android:text="Enter your\n Verification Code"
+                android:textAlignment="center"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="100dp"
+                android:textColor="#000"/>
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:id="@+id/txtPhoneNumber"
+                android:textSize="17sp"/>
+
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtCode"
+                android:textAlignment="center"
+                android:textSize="25sp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
+                android:layout_marginTop="10dp"
+                android:inputType="number"
+                android:hint="- - - - - -"
+                style="@style/MyOwnStyle"/>
+
+        <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Next"
+                android:id="@+id/btnNext"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="80dp"
+                android:layout_marginLeft="80dp"
+                android:background="#18B7FF"
+                android:textColor="#fff"
+                android:textSize="15sp"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Resend Verification Code"
+                android:id="@+id/btnResendCode"
+                android:textAlignment="center"
+                android:layout_marginTop="30dp"
+                android:textColor="#222222"
+                android:textSize="16sp"/>
+
+</LinearLayout>
