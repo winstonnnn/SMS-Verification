@@ -39,14 +39,14 @@
                 android:inputType="phone"
                 style="@style/MyOwnStyle"
                 android:layout_toRightOf="@+id/txtPrefix"
-                />
+                android:maxLength="10"/>
     </RelativeLayout>
 
     <Button
             android:id="@+id/btnSendCode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Verify number"
+            android:text="Next"
             android:textSize="15sp"
             android:textColor="#fff"
             android:layout_margin="10dp"

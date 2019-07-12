@@ -89,14 +89,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Log.d(TAG, "randomNumber: " + randomCode);
 
             //will text the verification code
-            SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage(phoneNumber, null, "Your Code is "+ randomCode, null, null);
+           /* SmsManager smsManager = SmsManager.getDefault();
+            smsManager.sendTextMessage(phoneNumber, null, "Your Code is "+ randomCode, null, null);*/
 
-            //will send all to Codereceiver activity
-            Intent intent = new Intent(MainActivity.this, CodeReceiver.class);
-            intent.putExtra("phoneNumber", phoneNumber);
-            intent.putExtra("randomCode", String.valueOf(randomCode));
-            startActivity(intent);
+           if (txtPrefix.getText().toString().trim().length() != 0 && txtPhoneNumber.getText().toString().trim().length() != 0 ){
+               //will send all to Codereceiver activity
+               Intent intent = new Intent(MainActivity.this, CodeReceiver.class);
+               intent.putExtra("phoneNumber", phoneNumber);
+               //intent.putExtra("randomCode", String.valueOf(randomCode));
+               startActivity(intent);
+           }else{
+               Toast.makeText(this, "Provide a phone a phone number", Toast.LENGTH_SHORT).show();
+               txtPhoneNumber.requestFocus();
+           }
+
         } else if (id == R.id.txtPhoneNumber) {
 
             if (checkIfTxtPhoneNumberCanType){
@@ -122,19 +128,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     //get the 1st sim card number
                     phoneNumber1.setText(telephonyManager.getLine1Number());
+
                     //place the selected phone number to the txtPhoneNumber and remove the 0 number in the 11 digit number
                     phoneNumber1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+
                             String number[] = phoneNumber1.getText().toString().split("");
                             String finalNumber = "";
-                            for (int i = 2; i < number.length; i++) {
-                                finalNumber = finalNumber + "" + number[i];
+
+                            //if phone number starts with 09
+                            if (phoneNumber1.getText().toString().trim().length() == 11) {
+                                for (int i = 2; i < number.length; i++) {
+                                    finalNumber = finalNumber + "" + number[i];
+                                }
                             }
+                            //if phone number starts with +63
+                            else{
+                                for (int i = 4; i < number.length; i ++){
+                                    finalNumber = finalNumber + "" + number[i];
+                                }
+                            }
+
                             txtPhoneNumber.setText(finalNumber);
                             dialog.hide();
                         }
                     });
+
 
                     //when user choose the type another number
                     anotherNumber.setOnClickListener(new View.OnClickListener() {

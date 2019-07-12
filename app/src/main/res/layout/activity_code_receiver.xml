@@ -32,12 +32,13 @@
                 android:layout_marginTop="10dp"
                 android:inputType="number"
                 android:hint="- - - - - -"
-                style="@style/MyOwnStyle"/>
+                style="@style/MyOwnStyle"
+                android:maxLength="6"/>
 
         <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Next"
+                android:text="Verify"
                 android:id="@+id/btnNext"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="80dp"

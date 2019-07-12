@@ -87,7 +87,7 @@ public class CodeReceiver extends AppCompatActivity implements View.OnClickListe
                     }
                 }.start();
 
-                //create a random number again
+               /* //create a random number again
                 Random rand = new Random();
                 int resendRandomNumber = rand.nextInt(999999 - 100000);
 
@@ -95,7 +95,7 @@ public class CodeReceiver extends AppCompatActivity implements View.OnClickListe
                 SmsManager smsManager = SmsManager.getDefault();
                 smsManager.sendTextMessage(getIntent().getStringExtra("phoneNumber"), null, "Your code is "+ resendRandomNumber, null, null);
                 randomCode = String.valueOf(resendRandomNumber);
-                Log.d("CodeReceiver", "randomNumber: " + resendRandomNumber);
+                Log.d("CodeReceiver", "randomNumber: " + resendRandomNumber);*/
 
             }else{
                 Toast.makeText(CodeReceiver.this, "Wait for the time to finish", Toast.LENGTH_SHORT).show();
@@ -118,5 +118,11 @@ public class CodeReceiver extends AppCompatActivity implements View.OnClickListe
                 }
             }
         }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(receiver);
     }
 }
